@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Maira Vargas — Cosmetóloga y Masoterapéuta profesional con 20 años de experiencia"
+    />
+    <title>Maira Vargas | Cosmetóloga & Masoterapéuta</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <a href="#inicio" class="logo">
+        <div class="logo-circle">MV</div>
+        <span class="logo-nombre">Maira Vargas</span>
+      </a>
+      <button class="menu-btn" id="menu-btn" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-desktop">
+        <a href="#inicio">Inicio</a>
+        <a href="#biografia">Biografía</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <!-- MENÚ MOBILE -->
+    <div class="menu-mobile" id="menu-mobile">
+      <button class="menu-close" id="menu-close" aria-label="Cerrar menú">
+        ✕
+      </button>
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#biografia">Biografía</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <main>
+      <!-- HERO -->
+      <section id="inicio" class="hero">
+        <div class="hero-content animar">
+          <h1>Maira Vargas</h1>
+          <p class="hero-sub">Cosmetóloga & Masoterapéuta</p>
+          <p class="hero-desc">
+            20 años de experiencia en tratamientos corporales y faciales
+            profesionales
+          </p>
+          <a href="#contacto" class="btn-marron">Reservar turno</a>
+        </div>
+        <div class="hero-img animar">
+          <img
+            src="https://placehold.co/560x560/a8ced4/ffffff?text=Maira+Vargas"
+            alt="Maira Vargas"
+          />
+        </div>
+      </section>
+
+      <!-- BIOGRAFÍA -->
+      <div class="seccion-wrapper-crema">
+        <section id="biografia" class="seccion seccion-invertida">
+          <div class="seccion-img animar">
+            <img
+              src="https://placehold.co/560x560/a8ced4/ffffff?text=Profesional"
+              alt="Maira Vargas profesional"
+            />
+          </div>
+          <div class="seccion-texto card animar">
+            <h2>¡Hola! Soy Maira</h2>
+            <p>
+              Soy cosmetóloga y masoterapéuta con
+              <strong>20 años de experiencia</strong> dedicados al cuidado de la
+              piel y el bienestar corporal.
+            </p>
+            <p>
+              Trabajo de manera independiente con el compromiso de brindar a
+              cada cliente un tratamiento personalizado, profesional y en un
+              ambiente de confianza.
+            </p>
+            <p>
+              Me apasiona lo que hago y me mantengo en constante formación para
+              ofrecer siempre las técnicas más actuales y efectivas.
+            </p>
+            <a href="#contacto" class="btn-marron">Conoceme</a>
+          </div>
+        </section>
+      </div>
+
+      <!-- SERVICIOS -->
+      <div class="seccion-wrapper-verde">
+        <section id="servicios" class="seccion">
+          <div class="seccion-img animar">
+            <img
+              src="https://placehold.co/560x560/a8ced4/ffffff?text=Servicios"
+              alt="Servicios de masoterapia"
+            />
+          </div>
+          <div class="seccion-texto card animar">
+            <h2>Relajación y bienestar a tu alcance</h2>
+            <p>
+              Sumérgete en una experiencia de relajación total. Cada sesión está
+              diseñada para renovar tu cuerpo y tu mente.
+            </p>
+            <ul class="lista-servicios">
+              <li>Masaje descontracturante</li>
+              <li>Drenaje linfático</li>
+              <li>Madoterapia</li>
+              <li>Peeling facial</li>
+              <li>Nanobotox</li>
+              <li>Tratamiento despigmentante</li>
+            </ul>
+            <a href="#contacto" class="btn-marron">Ver servicios</a>
+          </div>
+        </section>
+      </div>
+
+      <!-- PRODUCTOS -->
+      <div class="seccion-wrapper-crema">
+        <section id="productos" class="seccion seccion-invertida">
+          <div class="seccion-img animar">
+            <img
+              src="https://placehold.co/560x560/a8ced4/ffffff?text=Productos"
+              alt="Productos de cosmética"
+            />
+          </div>
+          <div class="seccion-texto card animar">
+            <h2>Productos que nutren tu piel</h2>
+            <p>
+              Descubrí nuestra línea de productos de cosmetología seleccionados
+              para brindarte resultados visibles y una piel radiante.
+            </p>
+            <p>
+              Desde serums revitalizantes hasta cremas hidratantes, tenemos lo
+              que necesitás para tu rutina de cuidado personal.
+            </p>
+            <a href="#contacto" class="btn-marron">Ver productos</a>
+          </div>
+        </section>
+      </div>
+
+      <!-- CONTACTO -->
+      <section id="contacto" class="contacto">
+        <div class="contacto-content animar">
+          <h2>Reservá tu turno</h2>
+          <p>
+            Consultá por el servicio que necesitás — te respondo a la brevedad
+          </p>
+          <div class="contacto-botones">
+            <button class="btn-whatsapp" id="btn-whatsapp">WhatsApp</button>
+            <a class="btn-email" href="mailto:tucorreo@gmail.com"
+              >Escribir email</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Enlaces</h3>
+          <a href="#inicio">Inicio</a>
+          <a href="#biografia">Biografía</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#productos">Productos</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contacto</h3>
+          <div class="footer-contacto-item">WhatsApp: +54 9 11 6408-8358</div>
+          <div class="footer-contacto-item">Email: flomaxleo.lmf@gmail.com</div>
+          <p style="margin-top: 8px">
+            Respondemos consultas de lunes a sábado.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Seguime</h3>
+          <div class="redes">
+            <a href="#" target="_blank" aria-label="Instagram">
+              <svg
+                width="28"
+                height="28"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a href="#" target="_blank" aria-label="Facebook">
+              <svg
+                width="28"
+                height="28"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy">
+        © 2025 Maira Vargas — Cosmetóloga & Masoterapéuta. Todos los derechos
+        reservados.
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
