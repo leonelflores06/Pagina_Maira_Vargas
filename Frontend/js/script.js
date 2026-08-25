@@ -45,7 +45,7 @@ document.querySelectorAll(".animar").forEach((el) => observer.observe(el));
 // WHATSAPP
 // =====================
 function abrirWhatsApp() {
-  const numero = "5491164088358"; // <-- cambiá esto por el número real de Maira
+  const numero = "5491162699416";
   const texto = encodeURIComponent(
     "Hola Maira! Quiero consultar por un turno.",
   );

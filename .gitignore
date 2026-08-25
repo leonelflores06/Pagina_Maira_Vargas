@@ -1,0 +1,5 @@
+node_modules/
+
+# Banco de fotos originales sin procesar (alta resolución, pesan mucho).
+# Las versiones optimizadas que usa el sitio viven en Frontend/assets/images/
+imagenes/
