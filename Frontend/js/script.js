@@ -1,69 +1,140 @@
-// =====================
-// MENÚ HAMBURGUESA
-// =====================
-const menuBtn = document.getElementById("menu-btn");
-const menuClose = document.getElementById("menu-close");
-const menuMobile = document.getElementById("menu-mobile");
-const overlay = document.getElementById("overlay");
+/* ============================================================
+   MAI VARGAS — comportamiento del sitio
+   ============================================================ */
+
+/* ============ CONTACTO ============
+   Único lugar donde se cambian el WhatsApp y el email.
+   El WhatsApp va en formato internacional, sin espacios ni símbolos:
+   54 (Argentina) + 9 (celular) + 11 (área) + número.
+   Ej: 11 6408-8358  ->  5491164088358                          */
+const CONTACTO = {
+  whatsapp: "5491164088358",
+  whatsappVisible: "+54 9 11 6408-8358",
+  email: "maira.vargas.shop@gmail.com",
+  asunto: "Consulta de turno",
+  mensaje: "¡Hola Maira! Quiero consultar por un turno.",
+};
+
+/* ============ LINKS DE CONTACTO ============ */
+function linkWhatsApp() {
+  return (
+    "https://wa.me/" +
+    CONTACTO.whatsapp +
+    "?text=" +
+    encodeURIComponent(CONTACTO.mensaje)
+  );
+}
+
+// Abre directamente el redactor de Gmail con el destinatario ya cargado.
+// Si la persona no tiene sesión de Gmail, Google la manda a iniciar sesión
+// y después le abre el mismo borrador.
+function linkGmail() {
+  return (
+    "https://mail.google.com/mail/?view=cm&fs=1" +
+    "&to=" + encodeURIComponent(CONTACTO.email) +
+    "&su=" + encodeURIComponent(CONTACTO.asunto) +
+    "&body=" + encodeURIComponent(CONTACTO.mensaje)
+  );
+}
+
+// Completa todos los elementos marcados con data-wa / data-mail,
+// así el número y el email viven en un solo lugar del código.
+function cablearContacto() {
+  const wa = linkWhatsApp();
+  const mail = linkGmail();
+
+  document.querySelectorAll("[data-wa]").forEach((el) => {
+    el.setAttribute("href", wa);
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+  });
+
+  document.querySelectorAll("[data-mail]").forEach((el) => {
+    el.setAttribute("href", mail);
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+  });
+
+  document.querySelectorAll("[data-wa-texto]").forEach((el) => {
+    el.textContent = CONTACTO.whatsappVisible;
+  });
+
+  document.querySelectorAll("[data-mail-texto]").forEach((el) => {
+    el.textContent = CONTACTO.email;
+  });
+}
+
+/* ============ MENÚ MÓVIL ============ */
+const btnMenu = document.getElementById("btn-menu");
+const btnCerrar = document.getElementById("btn-cerrar");
+const panel = document.getElementById("panel-movil");
+const velo = document.getElementById("velo");
 
 function abrirMenu() {
-  menuMobile.classList.add("abierto");
-  overlay.classList.add("activo");
+  panel.classList.add("abierto");
+  velo.classList.add("activo");
+  btnMenu.setAttribute("aria-expanded", "true");
+  document.body.style.overflow = "hidden";
 }
 
 function cerrarMenu() {
-  menuMobile.classList.remove("abierto");
-  overlay.classList.remove("activo");
+  panel.classList.remove("abierto");
+  velo.classList.remove("activo");
+  btnMenu.setAttribute("aria-expanded", "false");
+  document.body.style.overflow = "";
 }
 
-menuBtn.addEventListener("click", abrirMenu);
-menuClose.addEventListener("click", cerrarMenu);
-overlay.addEventListener("click", cerrarMenu);
+btnMenu.addEventListener("click", () => {
+  const abierto = panel.classList.contains("abierto");
+  abierto ? cerrarMenu() : abrirMenu();
+});
 
-// Cerrar al tocar un link del menú mobile
-document.querySelectorAll("#menu-mobile a").forEach((link) => {
+btnCerrar.addEventListener("click", cerrarMenu);
+velo.addEventListener("click", cerrarMenu);
+
+panel.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", cerrarMenu);
 });
 
-// =====================
-// ANIMACIONES AL SCROLL
-// =====================
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && panel.classList.contains("abierto")) cerrarMenu();
+});
+
+/* ============ CABECERA AL SCROLLEAR ============ */
+const cabecera = document.getElementById("cabecera");
+const waFlotante = document.querySelector(".wa-flotante");
+
+function alScrollear() {
+  const y = window.scrollY;
+  cabecera.classList.toggle("pegada", y > 20);
+  waFlotante.classList.toggle("visible", y > 600);
+}
+
+window.addEventListener("scroll", alScrollear, { passive: true });
+
+/* ============ ANIMACIONES AL APARECER ============ */
+const observador = new IntersectionObserver(
+  (entradas) => {
+    entradas.forEach((entrada) => {
+      if (entrada.isIntersecting) {
+        entrada.target.classList.add("visible");
+        observador.unobserve(entrada.target);
       }
     });
   },
-  { threshold: 0.15 },
+  { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
 );
 
-document.querySelectorAll(".animar").forEach((el) => observer.observe(el));
+// Las tarjetas de servicio entran escalonadas, una detrás de otra.
+document.querySelectorAll(".grilla-servicios .animar").forEach((el, i) => {
+  el.style.transitionDelay = i * 80 + "ms";
+});
 
-// =====================
-// WHATSAPP
-// =====================
-function abrirWhatsApp() {
-  const numero = "5491162699416";
-  const texto = encodeURIComponent(
-    "Hola Maira! Quiero consultar por un turno.",
-  );
-  window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
-}
+document.querySelectorAll(".animar").forEach((el) => observador.observe(el));
 
-document
-  .getElementById("btn-whatsapp")
-  .addEventListener("click", abrirWhatsApp);
+/* ============ AÑO DEL PIE ============ */
+document.getElementById("anio").textContent = new Date().getFullYear();
 
-// =====================
-// NEWSLETTER
-// =====================
-function suscribir() {
-  const email = document.getElementById("email-newsletter").value.trim();
-  if (!email || !email.includes("@")) {
-    alert("Por favor ingresá un email válido.");
-    return;
-  }
-  alert(`¡Gracias! Te anotamos con el email: ${email}`);
-}
+/* ============ ARRANQUE ============ */
+cablearContacto();
+alScrollear();
