@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mairavargas.netlify.app/sitemap.xml
