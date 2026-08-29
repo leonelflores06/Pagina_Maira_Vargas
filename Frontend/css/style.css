@@ -1110,6 +1110,17 @@ strong {
   height: 19px;
 }
 
+/* El menú móvil reutiliza .redes tal cual, pero su fondo es claro (no oscuro
+   como el pie de página), así que el color/borde blanco quedaría invisible. */
+.panel-movil .redes {
+  justify-content: center;
+}
+
+.panel-movil .redes a {
+  color: var(--tinta);
+  border-color: var(--sage-suave);
+}
+
 .pie__legal {
   max-width: var(--ancho);
   margin: 0 auto;
