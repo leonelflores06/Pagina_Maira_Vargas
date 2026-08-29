@@ -540,7 +540,8 @@ strong {
   top: 0;
   right: 0;
   width: min(320px, 84vw);
-  height: 100%;
+  height: 100vh;
+  height: 100dvh; /* en Safari iOS, 100% / 100vh no sigue el achique de la barra de URL y deja un hueco arriba */
   background: var(--blanco);
   box-shadow: -10px 0 50px rgba(45, 74, 80, 0.18);
   z-index: 200;
@@ -548,6 +549,9 @@ strong {
   display: flex;
   flex-direction: column;
   gap: 28px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   transform: translateX(100%);
   transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
 }

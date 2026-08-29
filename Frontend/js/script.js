@@ -70,18 +70,28 @@ const btnCerrar = document.getElementById("btn-cerrar");
 const panel = document.getElementById("panel-movil");
 const velo = document.getElementById("velo");
 
+let scrollAlAbrirMenu = 0;
+
 function abrirMenu() {
+  scrollAlAbrirMenu = window.scrollY;
   panel.classList.add("abierto");
   velo.classList.add("activo");
   btnMenu.setAttribute("aria-expanded", "true");
-  document.body.style.overflow = "hidden";
+  // overflow:hidden en el body no bloquea el scroll táctil en Safari iOS;
+  // fijar el body con position:fixed sí lo bloquea ahí y en el resto de navegadores.
+  document.body.style.position = "fixed";
+  document.body.style.top = `-${scrollAlAbrirMenu}px`;
+  document.body.style.width = "100%";
 }
 
 function cerrarMenu() {
   panel.classList.remove("abierto");
   velo.classList.remove("activo");
   btnMenu.setAttribute("aria-expanded", "false");
-  document.body.style.overflow = "";
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.width = "";
+  window.scrollTo(0, scrollAlAbrirMenu);
 }
 
 btnMenu.addEventListener("click", () => {
