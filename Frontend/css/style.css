@@ -650,6 +650,11 @@ strong {
   margin-bottom: 1.1rem;
 }
 
+/* Página de cursos: el nombre del curso suele ser largo */
+.hero--curso h1 {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+}
+
 .hero__bajada {
   max-width: 46ch;
   font-size: 1.05rem;
@@ -1287,6 +1292,11 @@ strong {
 
   .hero__figura {
     order: -1;
+  }
+
+  /* En cursos, primero el nombre y el botón de inscripción; después la foto */
+  .hero--curso .hero__figura {
+    order: 0;
   }
 
   .marco {
