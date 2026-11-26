@@ -650,6 +650,11 @@ strong {
   margin-bottom: 1.1rem;
 }
 
+/* Página de cursos: sin arco arriba, para no recortar a quien da el masaje */
+.hero--curso .marco {
+  border-radius: var(--r-grande);
+}
+
 /* Página de cursos: el nombre del curso suele ser largo */
 .hero--curso h1 {
   font-size: clamp(2.4rem, 5vw, 3.8rem);
