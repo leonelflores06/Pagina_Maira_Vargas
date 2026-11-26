@@ -21,7 +21,8 @@ function linkWhatsApp() {
     "https://wa.me/" +
     CONTACTO.whatsapp +
     "?text=" +
-    encodeURIComponent(CONTACTO.mensaje)
+    // Cada página puede traer su propio mensaje en <body data-wa-mensaje="...">
+    encodeURIComponent(document.body.dataset.waMensaje || CONTACTO.mensaje)
   );
 }
 
@@ -32,8 +33,8 @@ function linkGmail() {
   return (
     "https://mail.google.com/mail/?view=cm&fs=1" +
     "&to=" + encodeURIComponent(CONTACTO.email) +
-    "&su=" + encodeURIComponent(CONTACTO.asunto) +
-    "&body=" + encodeURIComponent(CONTACTO.mensaje)
+    "&su=" + encodeURIComponent(document.body.dataset.mailAsunto || CONTACTO.asunto) +
+    "&body=" + encodeURIComponent(document.body.dataset.waMensaje || CONTACTO.mensaje)
   );
 }
 
